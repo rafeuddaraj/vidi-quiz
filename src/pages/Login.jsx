@@ -25,7 +25,9 @@ export default function Login() {
                         placeholder={"Enter password"}
                     />
 
-                    <Button text={"Submit now"} />
+                    <Button>
+                        <span>Submit now</span>
+                    </Button>
 
                     <div className="info">
                         {`Don't have an account?`}

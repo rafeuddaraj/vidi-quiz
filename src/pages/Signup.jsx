@@ -3,8 +3,8 @@ import Form from "../components/Form";
 import TextInput from "../components/TextInput";
 import Checkbox from "../components/Checkbox";
 import Button from "../components/Button";
-import classes from '../styles/Signup.module.css'
-import signupImage from '../assets/images/signup.svg'
+import classes from "../styles/Signup.module.css";
+import signupImage from "../assets/images/signup.svg";
 
 export default function Signup() {
     return (
@@ -38,9 +38,14 @@ export default function Signup() {
                     />
 
                     <Checkbox text={"I agree to the Terms & Conditions"} />
-                    <Button text={"Submit now"}/>
+                    <Button>
+                        <span>Submit now</span>
+                    </Button>
 
-                    <div className="info">Already have an account? <a href="login.html">Login</a> instead.</div>
+                    <div className="info">
+                        Already have an account? <a href="login.html">Login</a>{" "}
+                        instead.
+                    </div>
                 </Form>
             </div>
         </>
