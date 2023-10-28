@@ -5,6 +5,7 @@ import Checkbox from "../components/Checkbox";
 import Button from "../components/Button";
 import classes from "../styles/Signup.module.css";
 import signupImage from "../assets/images/signup.svg";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Signup() {
     return (
@@ -43,7 +44,7 @@ export default function Signup() {
                     </Button>
 
                     <div className="info">
-                        Already have an account? <a href="login.html">Login</a>{" "}
+                        Already have an account? <Link to="/login">Login</Link> 
                         instead.
                     </div>
                 </Form>

@@ -1,4 +1,4 @@
-import Answer from "../components/Answer";
+import Answers from "../components/Answers";
 import ProgressBar from "../components/ProgressBar";
 import MiniPlayer from "../components/MiniPlayer";
 
@@ -7,7 +7,7 @@ export default function Quiz() {
         <>
             <h1>Pick three of your favorite Star Wars Flims</h1>
             <h4>Question can have multiple answers</h4>
-            <Answer />
+            <Answers />
             <ProgressBar />
             <MiniPlayer />
         </>
