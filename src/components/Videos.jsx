@@ -7,7 +7,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 export default function Videos() {
     const [page, setPage] = useState(1);
     const { hasMore, videos, error, loading } = useVideoList(page);
-    console.log(videos);
     return (
         <div>
             {videos.length > 0 && (
@@ -18,7 +17,7 @@ export default function Videos() {
                     loader="loading....">
                     {videos.map((video) =>
                         video.noq !== 0 ? (
-                            <Link key={video.youtubeID} to="/quiz">
+                            <Link key={video.youtubeID} to={`/quiz/${video.youtubeID}`}>
                                 <Video
                                     title={video.title}
                                     image={`https://img.youtube.com/vi/${video.youtubeID}/maxresdefault.jpg`}
