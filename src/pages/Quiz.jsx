@@ -95,7 +95,7 @@ export default function Quiz() {
                     <h4>Question can have multiple answers</h4>
                     <Answers input options = {qna[currentQuestion].options} handler={handleAnswerChange}/>
                     <ProgressBar next={next} prev={prev} progress={progress} submit={submit}/>
-                    <MiniPlayer id={id} title={qna[currentQuestion].title} />
+                    <MiniPlayer id={id}/>
                 </>
             )}
         </>

@@ -1,11 +1,13 @@
 import classes from "../styles/MiniPlayer.module.css";
-import img from "../assets/images/3.jpg";
 import { useRef, useState } from "react";
 import ReactPlayer from "react-player";
+import { useLocation } from "react-router-dom";
 
-export default function MiniPlayer({ id, title }) {
+export default function MiniPlayer({ id }) {
+    const {state:videoTitle} = useLocation()
     const [status, setStatus] = useState(false);
     const buttonRef = useRef();
+
     const url = `https://www.youtube.com/watch?v=${id}`;
 
     const toggleMiniPlayer = () => {
@@ -38,10 +40,11 @@ export default function MiniPlayer({ id, title }) {
                 className={classes.player}
                 width="300px"
                 height="168px"
-                playing
+                playing={status}
                 controls
+                config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
             />
-            <p>{title}</p>
+            <p>{videoTitle.videoTitle}</p>
         </div>
     );
 }
