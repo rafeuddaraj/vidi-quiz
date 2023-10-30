@@ -6,8 +6,8 @@ export default function NotFound() {
     return (
         <>
              <div className={classes.error_container}>
-        <h1 className='error_h1'>404</h1>
-        <p className='error_p'>{`'${pathname.replace('/','')}'`} Page Not Found</p>
+        <h1 className={classes.error_h1}>404</h1>
+        <p className={classes.error_p}>{`'${pathname.replace('/','')}'`} Page Not Found</p>
         <NavLink className={classes.success} to={'/'}>Go Back</NavLink>
         <div className={classes.astronaut}>
             <div className={classes.head}>
