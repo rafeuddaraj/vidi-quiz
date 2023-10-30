@@ -57,7 +57,7 @@ export default function LoginForm() {
 
             <div className="info">
                 {`Don't have an account?`}
-                <Link to="/signup">Signup</Link> instead.
+                <Link to="/signup"> Signup</Link> instead.
             </div>
         </Form>
     );

@@ -83,7 +83,7 @@ export default function SignupForm() {
             {error && <p className="error">{error}</p>}
 
             <div className="info">
-                Already have an account? <Link to="/login">Login</Link>
+                Already have an account? <Link to="/login"> Login </Link>
                 instead.
             </div>
         </Form>
