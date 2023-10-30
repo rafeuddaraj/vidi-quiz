@@ -3,7 +3,7 @@ import ProgressBar from "../components/ProgressBar";
 import MiniPlayer from "../components/MiniPlayer";
 import useQuestions from "../hooks/useQuestions";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import _ from 'lodash'
 import { getDatabase, ref, set } from "firebase/database";
 import {useAuth} from '../contexts/AuthContext'
@@ -39,6 +39,8 @@ export default function Quiz() {
     const [qna,dispatch] = useReducer(reducer,initialState)
     const { loading, questions, error } = useQuestions(id);
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [trackQuiz,setTrackQuiz] = useState(false)
+    const errorRef = useRef()
     useEffect(()=>{
         dispatch({
             type:'questions',
@@ -46,8 +48,20 @@ export default function Quiz() {
         })
     },[questions])
     const next = ()=>{
-        if(currentQuestion + 1 < questions.length){
+        let accessNextPage = false
+        qna[currentQuestion].options.forEach(option=>{
+            if(option.checked){
+                accessNextPage = true
+            }
+        })
+        if(currentQuestion + 1 < questions.length && accessNextPage){
             setCurrentQuestion(prev=>prev+1)
+            errorRef.current.style.opacity = 0
+        }else{
+            errorRef.current.style.opacity= 1
+            setTimeout(()=>{
+                errorRef.current.style.opacity = 0
+            },3000)
         }
     }
 
@@ -91,6 +105,7 @@ export default function Quiz() {
             {error && <div>Error....</div>}
             {!loading && !error && qna.length > 0 && (
                 <>
+                    <h1 className="error" ref={errorRef} style={{justifyContent:'center',opacity:0,cursor:'default',userSelect:'none'}}>{'Submit at least one option'}</h1>
                     <h1>{qna[currentQuestion].title}</h1>
                     <h4>Question can have multiple answers</h4>
                     <Answers input options = {qna[currentQuestion].options} handler={handleAnswerChange}/>

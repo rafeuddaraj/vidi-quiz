@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "../contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
+import NotFound from "./NotFound";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                         <PublicRoute exact path="/login" component={Login} />
                         <PrivateRoute exact path="/quiz/:id" component={Quiz} />
                         <PrivateRoute exact path="/result/:id" component={Result} />
+                        <Route exact component={NotFound}/>
                     </Switch>
                 </Layout>
             </AuthProvider>
