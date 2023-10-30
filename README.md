@@ -73,6 +73,10 @@ You must have node.js installed on your machine. Since we used Firebase as the b
     ```sh
     git clone https://github.com/rafeuddaraj/react-quiz.git
     ```
+3. Change Directory
+    ```sh
+    cd react-quiz
+    ```
 3. Install NPM packages
     ```sh
     npm install
@@ -88,5 +92,7 @@ You must have node.js installed on your machine. Since we used Firebase as the b
     VITE_DATABASE_URL=Your_DATABASE_URL
     VITE_PIXELS_API=Your_PIXELS_API
     ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+3. Run project
+    ```sh
+    npm run dev
+    ```
