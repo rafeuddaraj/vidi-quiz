@@ -1,10 +1,9 @@
 import Summary from "../components/Summary";
 import Analysis from "../components/Analysis";
 import {
-    useHistory,
     useLocation,
     useParams,
-} from "react-router-dom/cjs/react-router-dom.min";
+} from "react-router-dom";
 import useAnswers from "../hooks/useAnswers";
 import _ from "lodash";
 
@@ -12,7 +11,7 @@ export default function Result() {
     const { state } = useLocation();
     const { id } = useParams();
     const { loading, answers, error } = useAnswers(id);
-    const { qna } = state;
+
 
     const calculate = () => {
         let score = 0;
@@ -25,7 +24,7 @@ export default function Result() {
                 if (option.correct) {
                     correctIndexes.push(index2);
                 }
-                if (qna[index1].options[index2].checked) {
+                if (state[index1].options[index2].checked) {
                     checkedIndexes.push(index2);
                     option.checked = true;
                 }

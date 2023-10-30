@@ -17,12 +17,12 @@ export default function Videos() {
                     loader="loading....">
                     {videos.map((video) =>
                         video.noq !== 0 ? (
-                            <Link key={video.youtubeID} to={{
-                                pathname:`/quiz/${video.youtubeID}`,
-                                state: {
-                                    videoTitle:video.title
-                                }
-                            }}>
+                            <Link
+                                key={video.youtubeID}
+                                to={`/quiz/${video.youtubeID}`}
+                                state={{
+                                        videoTitle: video.title
+                                }}>
                                 <Video
                                     title={video.title}
                                     image={`https://img.youtube.com/vi/${video.youtubeID}/maxresdefault.jpg`}

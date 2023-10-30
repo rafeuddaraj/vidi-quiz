@@ -2,10 +2,10 @@ import Form from "./Form";
 import TextInput from "./TextInput";
 import Checkbox from "./Checkbox";
 import Button from "./Button";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import {useAuth} from '../contexts/AuthContext'
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export default function SignupForm() {
@@ -16,7 +16,7 @@ export default function SignupForm() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const {signup} = useAuth()
-    const history = useHistory()
+    const navigation = useNavigate()
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
@@ -28,7 +28,7 @@ export default function SignupForm() {
             setError("")
             setLoading(true)
             await signup(email,password,username)
-            history.push('/')
+            navigation('/')
 
         }catch(err){
             console.log(err)

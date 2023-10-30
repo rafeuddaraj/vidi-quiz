@@ -1,7 +1,7 @@
 import Account from './Account'
 import classes from '../styles/Nav.module.css'
 import logo from '../assets/images/logo-bg.png'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link } from 'react-router-dom'
 
 export default function Nav() {
   return (

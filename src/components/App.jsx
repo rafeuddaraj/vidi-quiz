@@ -4,7 +4,7 @@ import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import Quiz from "../pages/Quiz";
 import Result from "../pages/Result";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "../contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
@@ -15,14 +15,42 @@ function App() {
         <Router>
             <AuthProvider>
                 <Layout>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <PublicRoute exact path="/signup" component={Signup} />
-                        <PublicRoute exact path="/login" component={Login} />
-                        <PrivateRoute exact path="/quiz/:id" component={Quiz} />
-                        <PrivateRoute exact path="/result/:id" component={Result} />
-                        <Route exact component={NotFound}/>
-                    </Switch>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route
+                            path="/signup"
+                            element={
+                                <PublicRoute>
+                                    <Signup />
+                                </PublicRoute>
+                            }
+                        />
+                        <Route
+                            path="/login"
+                            element={
+                                <PublicRoute>
+                                    <Login />
+                                </PublicRoute>
+                            }
+                        />
+                        <Route
+                            path="/quiz/:id"
+                            element={
+                                <PrivateRoute>
+                                    <Quiz />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path="/result/:id"
+                            element={
+                                <PrivateRoute>
+                                    <Result />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
                 </Layout>
             </AuthProvider>
         </Router>

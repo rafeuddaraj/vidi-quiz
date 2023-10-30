@@ -3,9 +3,9 @@ import ProgressBar from "../components/ProgressBar";
 import MiniPlayer from "../components/MiniPlayer";
 import useQuestions from "../hooks/useQuestions";
 import {
-    useHistory,
+    useNavigate,
     useParams,
-} from "react-router-dom/cjs/react-router-dom.min";
+} from "react-router-dom";
 import { useEffect, useReducer, useRef, useState } from "react";
 import _ from "lodash";
 import { getDatabase, ref, set } from "firebase/database";
@@ -34,13 +34,12 @@ const reducer = (state, action) => {
 };
 
 export default function Quiz() {
-    const history = useHistory();
+    const navigate = useNavigate();
     const { currentUser } = useAuth();
     const { id } = useParams();
     const [qna, dispatch] = useReducer(reducer, initialState);
     const { loading, questions, error } = useQuestions(id);
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [trackQuiz, setTrackQuiz] = useState(false);
     const errorRef = useRef();
     useEffect(() => {
         dispatch({
@@ -97,11 +96,8 @@ export default function Quiz() {
                 [id]: qna,
             });
 
-            history.push({
-                pathname: `/result/${id}`,
-                state: {
-                    qna,
-                },
+            navigate(`/result/${id}`,{
+                state: qna,
             });
         } else {
             errorRef.current.style.opacity = 1;

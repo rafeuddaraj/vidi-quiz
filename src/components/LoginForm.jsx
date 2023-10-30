@@ -4,14 +4,14 @@ import Button from "../components/Button";
 import {Link} from 'react-router-dom'
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function LoginForm() {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [error,setError] = useState('')
     const [loading,setLoading] = useState(false)
 
-    const history = useHistory()
+    const navigation = useNavigate()
     const {login} = useAuth()
 
 
@@ -21,7 +21,7 @@ export default function LoginForm() {
             setLoading(true)
             setError('')
             await login(email,password)
-            history.push('/')
+            navigation('/')
         }catch(e){
             console.log(e);
             setLoading(false)

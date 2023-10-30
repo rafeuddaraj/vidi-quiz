@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import classes from '../styles/NotFound.module.css'
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useLocation } from 'react-router-dom';
 export default function NotFound() {
     const {pathname} = useLocation()
     return (
