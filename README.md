@@ -11,14 +11,14 @@
   <p align="center">
     The only purpose of these apps is to play quiz games. There will be videos as well as quizzes set to test your skills after watching the video. So we believe that through this a good output can be brought out from the video content.
     <br />
-    <a href="https://github.com/rafeuddaraj/react-quiz"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/rafeuddaraj/vidi-quiz"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://vidiquiz.altrazen.com/">View Demo</a>
     ·
-    <a href="https://github.com/rafeuddaraj/react-quiz/issues">Report Bug</a>
+    <a href="https://github.com/rafeuddaraj/vidi-quiz/issues">Report Bug</a>
     ·
-    <a href="https://github.com/rafeuddaraj/react-quiz/issues">Request Feature</a>
+    <a href="https://github.com/rafeuddaraj/vidi-quiz/issues">Request Feature</a>
   </p>
 </div>
 
@@ -71,11 +71,11 @@ You must have node.js installed on your machine. Since we used Firebase as the b
 
 2. Clone the repo
     ```sh
-    git clone https://github.com/rafeuddaraj/react-quiz.git
+    git clone https://github.com/rafeuddaraj/vidi-quiz.git
     ```
 3. Change Directory
     ```sh
-    cd react-quiz
+    cd vidi-quiz
     ```
 3. Install NPM packages
     ```sh
