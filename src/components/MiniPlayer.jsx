@@ -42,7 +42,7 @@ export default function MiniPlayer({ id }) {
                 height="168px"
                 playing={status}
                 controls
-                config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
+                config={{ youtube: { playerVars: { origin: window.location.origin } } }}
             />
             <p>{videoTitle.videoTitle}</p>
         </div>
