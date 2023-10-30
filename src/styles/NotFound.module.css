@@ -4,12 +4,12 @@
     font-family: Arial, sans-serif;
 }
 
-h1 {
+.error_h1 {
     font-size: 10em;
     margin: 0;
 }
 
-p {
+.error_p {
     font-size: 2em;
 }
 
