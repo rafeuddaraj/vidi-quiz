@@ -5,7 +5,7 @@ import useQuestions from "../hooks/useQuestions";
 import {
     useHistory,
     useParams,
-} from "react-router-dom/cjs/react-router-dom.min";
+} from "react-router-dom";
 import { useEffect, useReducer, useRef, useState } from "react";
 import _ from "lodash";
 import { getDatabase, ref, set } from "firebase/database";

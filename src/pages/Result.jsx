@@ -1,16 +1,15 @@
 import Summary from "../components/Summary";
 import Analysis from "../components/Analysis";
-import {
-    useHistory,
-    useLocation,
-    useParams,
-} from "react-router-dom/cjs/react-router-dom.min";
+import Button from "../components/Button";
+import { useLocation, useParams } from "react-router-dom";
 import useAnswers from "../hooks/useAnswers";
 import _ from "lodash";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Result() {
     const { state } = useLocation();
     const { id } = useParams();
+    const history = useHistory()
     const { loading, answers, error } = useAnswers(id);
     const { qna } = state;
 
@@ -53,6 +52,11 @@ export default function Result() {
                         noq={answers.length}
                         answers={answers}
                     />
+                    <div className={"center"}>
+                        <Button onClick={()=>{
+                            history.push('/')
+                        }}>Return Home</Button>
+                    </div>
                 </>
             )}
         </>

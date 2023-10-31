@@ -76,3 +76,8 @@ h4 {
     width: 90%;
   }
 }
+
+.center{
+  display: flex;
+  justify-content: center;
+}

@@ -2,10 +2,10 @@ import Form from "./Form";
 import TextInput from "./TextInput";
 import Checkbox from "./Checkbox";
 import Button from "./Button";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import {useAuth} from '../contexts/AuthContext'
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 export default function SignupForm() {
